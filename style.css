@@ -1,0 +1,211 @@
+/* General Body & App Styling */
+body {
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #252525;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Header and Navigation */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #333;
+}
+
+.nav-button.active {
+    background-color: #3498DB;
+    color: #FFF;
+}
+
+/* Main Content Views */
+.view.hidden {
+    display: none;
+}
+
+.display-area {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.time-display {
+    font-family: 'Fira Code', monospace;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.date-display {
+    font-size: 1.2rem;
+    color: #AAA;
+}
+
+/* Control Area & Buttons */
+.control-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.primary-btn {
+    background-color: #3498DB;
+    color: white;
+}
+
+.primary-btn.pause {
+    background-color: #E74C3C; /* Red for pause/stop */
+}
+
+.secondary-btn {
+    background-color: #555;
+    color: #E0E0E0;
+}
+
+.secondary-btn:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Stopwatch Laps */
+.laps-container {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+/* Timer Setup */
+.timer-setup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 4rem;
+}
+
+.timer-setup input {
+    width: 100px;
+    background: #333;
+    border: none;
+    color: #E0E0E0;
+    font-family: 'Fira Code', monospace;
+    font-size: 4rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* --- Body and Container Adjustment --- */
+/* Add a bottom margin to the main container to prevent it from hiding behind the fixed footer */
+.app-container {
+    margin-bottom: 100px; /* This creates space for the footer */
+}
+
+
+/* --- New Full-Fledged Footer Styling --- */
+.app-footer {
+    position: fixed; /* This sticks the footer to the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Makes the footer span the full width of the page */
+    background-color: #1A1A1A; /* Matches the body background color */
+    padding: 20px 5%; /* Adds padding on the top/bottom and sides */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444; /* A nice separator line */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+.footer-text {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.footer-text p {
+    margin: 3px 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #E0E0E0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #3498DB;
+    transform: translateY(-3px);
+}
