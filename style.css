@@ -1,6 +1,9 @@
 /* General Body & App Styling */
 body {
-    background-color: #1A1A1A;
+    /* Deep Modern Gradient Background */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     color: #E0E0E0;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -8,91 +11,146 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Prevents scrollbars from footer */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .app-container {
     width: 90%;
-    max-width: 600px;
-    background-color: #252525;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px; 
+    
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 80px; /* Space for footer */
+    transition: transform 0.3s ease;
+}
+
+.app-container:hover {
+    transform: translateY(-5px);
 }
 
 /* Header and Navigation */
 .app-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #3498DB, #e45dfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0;
+}
+
+.navigation {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 12px;
+    display: flex;
+    gap: 5px;
 }
 
 .nav-button {
     background: none;
     border: none;
-    color: #888;
+    color: #aaa;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    padding: 10px 15px;
-    margin: 0 5px;
+    font-size: 0.9rem;
+    padding: 8px 20px;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .nav-button:hover {
-    background-color: #333;
+    color: #fff;
 }
 
 .nav-button.active {
     background-color: #3498DB;
     color: #FFF;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
 }
 
 /* Main Content Views */
 .view.hidden {
     display: none;
+    opacity: 0;
+}
+
+.view.active-view {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .display-area {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    min-height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .time-display {
     font-family: 'Fira Code', monospace;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
+    color: #fff;
+    /* Neon Glow Effect */
+    text-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
 }
 
 .date-display {
-    font-size: 1.2rem;
-    color: #AAA;
+    font-size: 1rem;
+    color: #CCC;
+    letter-spacing: 1px;
+    margin-top: 5px;
 }
 
 /* Control Area & Buttons */
 .control-area {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .control-btn {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .control-btn:active {
@@ -100,38 +158,70 @@ body {
 }
 
 .primary-btn {
-    background-color: #3498DB;
+    background: linear-gradient(135deg, #3498DB, #2980b9);
     color: white;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 0 25px rgba(52, 152, 219, 0.8);
 }
 
 .primary-btn.pause {
-    background-color: #E74C3C; /* Red for pause/stop */
+    background: linear-gradient(135deg, #ff416c, #ff4b2b); 
+    box-shadow: 0 0 15px rgba(255, 75, 43, 0.5);
 }
 
 .secondary-btn {
-    background-color: #555;
+    background: rgba(255, 255, 255, 0.1);
     color: #E0E0E0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .secondary-btn:disabled {
-    background-color: #444;
+    background: rgba(255, 255, 255, 0.05);
+    color: #666;
     cursor: not-allowed;
-    opacity: 0.5;
+    box-shadow: none;
 }
 
 /* Stopwatch Laps */
 .laps-container {
     max-height: 150px;
     overflow-y: auto;
-    margin-top: 20px;
-    padding-right: 10px;
+    margin-top: 25px;
+    padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.laps-container::-webkit-scrollbar {
+    width: 5px;
+}
+.laps-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+.laps-container::-webkit-scrollbar-thumb {
+    background: #3498DB;
+    border-radius: 10px;
 }
 
 .lap-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #333;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #bbb;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.lap-item:first-child {
+    color: #3498DB; /* Highlight most recent lap */
+    font-weight: bold;
 }
 
 /* Timer Setup */
@@ -140,51 +230,65 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    font-family: 'Fira Code', monospace;
-    font-size: 4rem;
+}
+
+.timer-setup span {
+    font-size: 3rem;
+    margin-top: -10px;
+    color: #aaa;
 }
 
 .timer-setup input {
-    width: 100px;
-    background: #333;
-    border: none;
-    color: #E0E0E0;
+    width: 90px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
     font-family: 'Fira Code', monospace;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 12px;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-/* --- Body and Container Adjustment --- */
-/* Add a bottom margin to the main container to prevent it from hiding behind the fixed footer */
-.app-container {
-    margin-bottom: 100px; /* This creates space for the footer */
+.timer-setup input:focus {
+    border-color: #3498DB;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.2);
 }
 
+/* Chrome/Safari/Edge input arrow removal */
+.timer-setup input::-webkit-outer-spin-button,
+.timer-setup input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-/* --- New Full-Fledged Footer Styling --- */
+/* Footer Styling */
 .app-footer {
-    position: fixed; /* This sticks the footer to the bottom of the viewport */
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%; /* Makes the footer span the full width of the page */
-    background-color: #1A1A1A; /* Matches the body background color */
-    padding: 20px 5%; /* Adds padding on the top/bottom and sides */
+    width: 100%;
+    background: rgba(15, 12, 41, 0.9); 
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #444; /* A nice separator line */
-    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    z-index: 10;
 }
 
 .footer-text {
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #888;
 }
 
 .footer-text p {
-    margin: 3px 0;
+    margin: 2px 0;
 }
 
 .social-links {
@@ -196,16 +300,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: #333;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     text-decoration: none;
     color: #E0E0E0;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .social-link:hover {
     background-color: #3498DB;
-    transform: translateY(-3px);
+    color: white;
+    transform: translateY(-3px) rotate(360deg); /* Fun rotation */
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+    .time-display, .timer-setup input {
+        font-size: 2.5rem;
+    }
+    .timer-setup input {
+        width: 60px;
+    }
+    .app-container {
+        padding: 30px 15px;
+        width: 95%;
+    }
 }
