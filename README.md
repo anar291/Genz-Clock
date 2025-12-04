@@ -9,7 +9,7 @@ Tired of boring, old-school clocks? Same. This is a digital clock built for the 
 
 ## Live Demo 🚀
 
-Check out the live version here: **[Link to your live project]**
+Check out the live version here: **[https://genzclock.nichesite.org/]**
 
 ## Tech Stack 💻
 
